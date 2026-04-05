@@ -1,8 +1,3 @@
-// Top of script.js
-let income = 0;
-let expenses = 0;
-let myChart; // Global variable for the chart
-
 const balance = document.getElementById('balance');
 const money_plus = document.getElementById('money-plus');
 const money_minus = document.getElementById('money-minus');
@@ -73,40 +68,4 @@ form.addEventListener('submit', (e) => {
 
     text.value = '';
     amount.value = '';
-});
-
-document.getElementById('reset-btn').addEventListener('click', () => {
-    // 1. Clear the "Engine" (Data)
-    income = 0;
-    expenses = 0;
-    localStorage.clear(); // Wipes everything from the browser memory
-
-    // 2. Clear the "Dashboard" (UI)
-    // Double-check these IDs match your HTML exactly!
-    document.getElementById('total-income').textContent = "$0";
-    document.getElementById('total-expenses').textContent = "$0";
-    document.getElementById('balance').textContent = "$0";
-    
-    // Clear the list of items if you have one
-    const list = document.getElementById('transaction-list');
-    if (list) list.innerHTML = ""; 
-
-    // 3. Clear the "Visuals" (Chart)
-    if (myChart) {
-        myChart.destroy(); // Deletes the old chart object
-        renderChart(0, 0); // Draws a fresh, empty chart
-    }
-    
-    alert("System Reset Complete.");
-});
-
-const resetBtn = document.getElementById('reset-btn');
-
-resetBtn.addEventListener('click', () => {
-    // A professional safety check
-    const isConfirmed = confirm("Warning: This will permanently delete all your expense data. Continue?");
-    
-    if (isConfirmed) {
-        performReset(); // Call your reset logic here
-    }
 });

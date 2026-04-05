@@ -85,37 +85,3 @@ input[type="text"], input[type="number"] {
     cursor: pointer;
     margin-top: 10px;
 }
-
-/* Reset Button Styling */
-#reset-btn {
-    background-color: transparent;
-    color: #ef4444; /* Modern Red */
-    border: 2px solid #ef4444;
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 1rem;
-}
-
-#reset-btn:hover {
-    background-color: #ef4444;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.2);
-}
-
-#reset-btn:active {
-    transform: scale(0.95);
-}
-
-/* Container for buttons to keep them aligned */
-.button-group {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
