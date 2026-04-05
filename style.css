@@ -85,3 +85,17 @@ input[type="text"], input[type="number"] {
     cursor: pointer;
     margin-top: 10px;
 }
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto; /* Centers the container horizontally */
+    max-width: 400px;  /* Keeps the pie chart at a professional size */
+    position: relative;
+}
+
+canvas #expenseChart {
+    width: 100% !important;
+    height: auto !important;
+}
