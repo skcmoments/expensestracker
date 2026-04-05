@@ -90,3 +90,28 @@ const myChart = new Chart(ctx, {
         }
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('expenseChart');
+    
+    // Check if the element actually exists
+    if (!ctx) {
+        console.error("Canvas element not found!");
+        return;
+    }
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Income', 'Expenses'],
+            datasets: [{
+                data: [500, 200], // Start with hardcoded numbers to test
+                backgroundColor: ['#006ce1', '#6366f1']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+});
