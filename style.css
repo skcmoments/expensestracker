@@ -98,12 +98,12 @@ input[type="text"], input[type="number"] {
 }
 
 .chart-container {
-    width: 100%;
-    max-width: 400px;       /* Professional sizing for a pie chart */
     position: relative;
-    margin: 0 auto;         /* The classic centering trick */
+    height: 40vh; /* Gives the chart a defined height to fill */
+    width: 80vw;  /* Gives it width */
+    max-width: 400px;
+    margin: 0 auto;
 }
-
 #expenseChart {
     display: block !important; 
     margin: 0 auto !important;
