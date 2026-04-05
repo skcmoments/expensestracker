@@ -69,3 +69,24 @@ form.addEventListener('submit', (e) => {
     text.value = '';
     amount.value = '';
 });
+
+const ctx = document.getElementById('expenseChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Income', 'Expenses'],
+        datasets: [{
+            data: [incomeValue, expenseValue],
+            backgroundColor: ['#006ce1', '#6366f1'] // Using your portfolio colors
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true, // Keeps it a perfect circle
+        plugins: {
+            legend: {
+                position: 'bottom', // Moves labels to the bottom for better centering
+            }
+        }
+    }
+});
