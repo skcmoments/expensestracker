@@ -99,3 +99,14 @@ document.getElementById('reset-btn').addEventListener('click', () => {
     
     alert("System Reset Complete.");
 });
+
+const resetBtn = document.getElementById('reset-btn');
+
+resetBtn.addEventListener('click', () => {
+    // A professional safety check
+    const isConfirmed = confirm("Warning: This will permanently delete all your expense data. Continue?");
+    
+    if (isConfirmed) {
+        performReset(); // Call your reset logic here
+    }
+});
