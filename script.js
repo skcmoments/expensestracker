@@ -69,3 +69,32 @@ form.addEventListener('submit', (e) => {
     text.value = '';
     amount.value = '';
 });
+
+const resetBtn = document.getElementById('reset-btn');
+
+resetBtn.addEventListener('click', () => {
+    // 1. Confirm with the user
+    if (confirm("Are you sure you want to clear all data?")) {
+        
+        // 2. Clear Data Variables
+        income = 0;
+        expenses = 0;
+        transactionList = []; // If you have a list of items
+
+        // 3. Clear Local Storage
+        localStorage.removeItem('expenseData');
+
+        // 4. Reset UI Text
+        document.getElementById('total-income').innerText = "$0";
+        document.getElementById('total-expenses').innerText = "$0";
+        document.getElementById('balance').innerText = "$0";
+
+        // 5. Reset the Chart
+        if (myChart) {
+            myChart.destroy(); // Completely removes the old chart
+            renderChart(0, 0); // Re-draws an empty/zero chart
+        }
+
+        alert("Data cleared successfully!");
+    }
+});
