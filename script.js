@@ -1,3 +1,8 @@
+// Top of script.js
+let income = 0;
+let expenses = 0;
+let myChart; // Global variable for the chart
+
 const balance = document.getElementById('balance');
 const money_plus = document.getElementById('money-plus');
 const money_minus = document.getElementById('money-minus');
@@ -70,31 +75,27 @@ form.addEventListener('submit', (e) => {
     amount.value = '';
 });
 
-const resetBtn = document.getElementById('reset-btn');
+document.getElementById('reset-btn').addEventListener('click', () => {
+    // 1. Clear the "Engine" (Data)
+    income = 0;
+    expenses = 0;
+    localStorage.clear(); // Wipes everything from the browser memory
 
-resetBtn.addEventListener('click', () => {
-    // 1. Confirm with the user
-    if (confirm("Are you sure you want to clear all data?")) {
-        
-        // 2. Clear Data Variables
-        income = 0;
-        expenses = 0;
-        transactionList = []; // If you have a list of items
+    // 2. Clear the "Dashboard" (UI)
+    // Double-check these IDs match your HTML exactly!
+    document.getElementById('total-income').textContent = "$0";
+    document.getElementById('total-expenses').textContent = "$0";
+    document.getElementById('balance').textContent = "$0";
+    
+    // Clear the list of items if you have one
+    const list = document.getElementById('transaction-list');
+    if (list) list.innerHTML = ""; 
 
-        // 3. Clear Local Storage
-        localStorage.removeItem('expenseData');
-
-        // 4. Reset UI Text
-        document.getElementById('total-income').innerText = "$0";
-        document.getElementById('total-expenses').innerText = "$0";
-        document.getElementById('balance').innerText = "$0";
-
-        // 5. Reset the Chart
-        if (myChart) {
-            myChart.destroy(); // Completely removes the old chart
-            renderChart(0, 0); // Re-draws an empty/zero chart
-        }
-
-        alert("Data cleared successfully!");
+    // 3. Clear the "Visuals" (Chart)
+    if (myChart) {
+        myChart.destroy(); // Deletes the old chart object
+        renderChart(0, 0); // Draws a fresh, empty chart
     }
+    
+    alert("System Reset Complete.");
 });
