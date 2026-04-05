@@ -1,0 +1,87 @@
+:root {
+    --primary: #6366f1;
+    --income: #22c55e;
+    --expense: #ef4444;
+    --bg: #f8fafc;
+}
+
+body {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 { margin-top: 0; font-size: 1.5rem; text-align: center; }
+
+.balance-card {
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.inc-exp-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.box {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    background: #f1f5f9;
+}
+
+.box.income p { color: var(--income); font-weight: bold; }
+.box.expense p { color: var(--expense); font-weight: bold; }
+
+.chart-wrapper {
+    margin-bottom: 20px;
+    max-height: 200px;
+}
+
+.radio-group {
+    display: flex;
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    justify-content: space-around;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
